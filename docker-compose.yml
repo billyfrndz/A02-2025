@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    container_name: vuln-notes
+    ports:
+      - "3000:3000"
+    environment:
+      DB_PASSWORD: SuperSecret123
+    # privileged: true        <-- DELETE (also breaks on Mac/Windows, unnecessary)
+    # network_mode: host      <-- DELETE (this was killing your port mapping)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
